@@ -1,12 +1,12 @@
-5a70d512adc8fccda1a074e50fd62376 *DESCRIPTION
+a89b03a5e54f52eb7d7c09c0560f5477 *DESCRIPTION
 bb1a9eab349e38666cc71db9e60c0f65 *LICENSE
 a1858f970a92346246b492b18b715717 *NAMESPACE
 4371445afd150938dfee96e958516c94 *R/covid19us-package.R
-0ea9d1c96b11321df8aa15eae738141c *R/get.R
+fe9a42690614df422bf65896b8c08904 *R/get.R
 0cd15919bfcdd8f68104ffde71a8ae0d *R/globals.R
 443567bc6b69538564cfc1405aaf2ee6 *R/utils-pipe.R
-38f7dede45e1d1e2df406f8cd89833ff *R/utils.R
-8068391d99a61ff8f419ee8a9118f84d *README.md
+c6cf33ae508168f821f70eb0a000a5f2 *R/utils.R
+34ba197c9eabd1f5021d60d88d3c9144 *README.md
 9f366151887ee038c26db3aaec4b438c *man/assignment_pipe.Rd
 3553866e647854a3767b863171421392 *man/covid19us-package.Rd
 07670a4ff4d92f6acd2f90638d0308f2 *man/get_counties_info.Rd
@@ -18,4 +18,4 @@ dd419b673753ac46334f31aeb11417d9 *man/get_tracker_urls.Rd
 5ded662d1010e93984984df578d3ffc8 *man/get_us_daily.Rd
 4894ca10756199e25f914bfd34f517b0 *man/pipe.Rd
 f4b62fd8f49b5c951edfcca1147ffabc *tests/testthat.R
-31718afad111cab2d6d536a68155578c *tests/testthat/test-all.R
+84936a70ac6fe12a0fe7811a23fad7e3 *tests/testthat/test-all.R

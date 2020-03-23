@@ -9,6 +9,11 @@ status](https://travis-ci.org/aedobbyn/covid19us.svg?branch=master)](https://tra
 status](https://ci.appveyor.com/api/projects/status/github/aedobbyn/covid19us?branch=master&svg=true)](https://ci.appveyor.com/project/aedobbyn/covid19us)
 [![Codecov test
 coverage](https://codecov.io/gh/aedobbyn/covid19us/graph/badge.svg)](https://codecov.io/gh/aedobbyn/covid19us)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/covid19us)](https://CRAN.R-project.org/package=covid19us)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+<!-- [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/covid19us)](https://github.com/metacran/cranlogs.app) -->
 <!-- badges: end -->
 
 This is an R wrapper around the [COVID Tracking Project
@@ -17,9 +22,11 @@ of the virus in the US with a few simple functions.
 
 ## Installation
 
-``` r
-devtools::install_github("aedobbyn/covid19us")
-```
+    install.packages("covid19us")
+
+Or the dev version:
+
+    devtools::install_github("aedobbyn/covid19us")
 
 ## Examples
 
@@ -32,29 +39,32 @@ Get the most recent COVID-19 top-line data for the country:
 ``` r
 get_us_current()
 #> # A tibble: 1 x 6
-#>   positive negative pending death total request_datetime   
-#>      <int>    <int>   <int> <int> <int> <dttm>             
-#> 1     8131    71635    2805   132 82571 2020-03-19 12:13:27
+#>   positive negative hospitalized death  total request_datetime   
+#>      <int>    <int>        <int> <int>  <int> <dttm>             
+#> 1    33277   210546         2615   418 246330 2020-03-23 17:29:39
 ```
 
 Or the same by state:
 
 ``` r
 get_states_current()
-#> # A tibble: 56 x 9
-#>    state positive negative pending death total last_update        
-#>    <chr>    <int>    <int>   <int> <int> <int> <dttm>             
-#>  1 AK           6      400      NA    NA   406 2020-03-18 16:30:00
-#>  2 AL          51       28      NA     0    79 2020-03-18 17:10:00
-#>  3 AR          37      284     112    NA   433 2020-03-18 18:34:00
-#>  4 AS           0       NA      NA     0     0 2020-03-14 00:00:00
-#>  5 AZ          28      148     102     0   278 2020-03-18 00:00:00
-#>  6 CA         611     7981      NA    13  8592 2020-03-17 21:00:00
-#>  7 CO         216     2112      NA     2  2328 2020-03-18 18:30:00
-#>  8 CT          96      604      NA     1   700 2020-03-18 22:00:00
-#>  9 DC          39      153      11    NA   203 2020-03-18 19:00:00
-#> 10 DE          26       36      NA    NA    62 2020-03-18 13:50:00
-#> # … with 46 more rows, and 2 more variables: check_time <dttm>,
+#> # A tibble: 56 x 18
+#>    state positive positive_score negative_score negative_regula…
+#>    <chr>    <int>          <int>          <int>            <int>
+#>  1 AK          22              1              1                1
+#>  2 AL         167              1              1                0
+#>  3 AR         174              1              1                1
+#>  4 AZ         265              1              1                1
+#>  5 CA        1733              1              1                1
+#>  6 CO         591              1              1                1
+#>  7 CT         415              1              1                1
+#>  8 DC         116              1              1                1
+#>  9 DE          68              1              1                0
+#> 10 FL        1171              1              1                1
+#> # … with 46 more rows, and 13 more variables: commercial_score <int>,
+#> #   grade <chr>, score <int>, negative <int>, pending <int>,
+#> #   hospitalized <int>, death <int>, total <int>, last_update <dttm>,
+#> #   check_time <dttm>, date_modified <dttm>, date_checked <dttm>,
 #> #   request_datetime <dttm>
 ```
 
@@ -65,11 +75,11 @@ get_states_daily(
   state = "NY", 
   date = "2020-03-17"
 )
-#> # A tibble: 1 x 9
-#>   date       state positive negative pending death total date_checked       
-#>   <date>     <chr>    <int>    <int> <lgl>   <int> <int> <dttm>             
-#> 1 2020-03-17 NY        1700     5506 NA          7  7206 2020-03-17 20:00:00
-#> # … with 1 more variable: request_datetime <dttm>
+#> # A tibble: 1 x 10
+#>   date       state positive negative pending hospitalized death total
+#>   <date>     <chr>    <int>    <int> <lgl>   <lgl>        <int> <int>
+#> 1 2020-03-17 NY        1700     5506 NA      NA               7  7206
+#> # … with 2 more variables: date_checked <dttm>, request_datetime <dttm>
 ```
 
 ## All Functions

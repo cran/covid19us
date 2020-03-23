@@ -1,8 +1,8 @@
 base_url <- "https://covidtracking.com/api/"
 
-request <- function(url) {
+request <- function(url) { # nocov start
   resp <-
-    httr::GET(url) %>%
+    httr::RETRY("GET", url) %>%
     httr::stop_for_status()
 
   lst <- httr::content(resp)
@@ -61,11 +61,25 @@ request <- function(url) {
     mutate(
       request_datetime = lubridate::now()
     )
-}
+} # nocov end
+
+try_request <- purrr::possibly(
+  request,
+  otherwise = tibble(),
+  quiet = FALSE
+)
 
 get <- function(endpoint, query = "") {
   url <- glue::glue("{base_url}{endpoint}{query}")
-  request(url)
+
+  have_internet <- curl::has_internet()
+
+  if (!have_internet) {
+    message("No internet connection.")
+    return(tibble())
+  }
+
+  try_request(url)
 }
 
 replace_null <- function(x) {

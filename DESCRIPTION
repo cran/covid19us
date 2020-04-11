@@ -1,6 +1,6 @@
 Package: covid19us
 Title: Cases of COVID-19 in the United States
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(given = "Amanda",
            family = "Dobbyn",
@@ -19,8 +19,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 NeedsCompilation: no
-Packaged: 2020-03-23 21:35:51 UTC; amanda
+Packaged: 2020-04-11 15:26:12 UTC; amanda
 Author: Amanda Dobbyn [aut, cre]
 Maintainer: Amanda Dobbyn <amanda.e.dobbyn@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-03-23 23:42:05 UTC
+Date/Publication: 2020-04-11 15:40:02 UTC

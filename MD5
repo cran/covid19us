@@ -1,11 +1,11 @@
-cda7a01d49c49781f5351517e630d5c4 *DESCRIPTION
+d2fd9ca0ba0439bb9023cba9e16acdd8 *DESCRIPTION
 bb1a9eab349e38666cc71db9e60c0f65 *LICENSE
 8534bc3f2d124e841d6a1c1284fe373f *NAMESPACE
 4371445afd150938dfee96e958516c94 *R/covid19us-package.R
-9a19e9de094c0c5d98a753895ad7300e *R/get.R
+a2d3a7347d93e8f4906fc03847c0da71 *R/get.R
 14595ea7cc710b5d9c0be3095b7a9e5b *R/globals.R
 443567bc6b69538564cfc1405aaf2ee6 *R/utils-pipe.R
-c6cf33ae508168f821f70eb0a000a5f2 *R/utils.R
+51a4afb6277ed65390a431accf3326e0 *R/utils.R
 17857148e3282885ddcc05e197054027 *README.md
 9f366151887ee038c26db3aaec4b438c *man/assignment_pipe.Rd
 3553866e647854a3767b863171421392 *man/covid19us-package.Rd
@@ -21,4 +21,4 @@ dd419b673753ac46334f31aeb11417d9 *man/get_tracker_urls.Rd
 4894ca10756199e25f914bfd34f517b0 *man/pipe.Rd
 fd92a4442b2c01f48b2aafab128c2e96 *man/refresh_covid19us.Rd
 f4b62fd8f49b5c951edfcca1147ffabc *tests/testthat.R
-76b5c22cbfbe6c13bd2c8b8bc3050635 *tests/testthat/test-all.R
+349b16234d0bdb15b090bfd87e5db84c *tests/testthat/test-all.R

@@ -2,8 +2,16 @@ base_url <- "https://covidtracking.com/api/v1/"
 
 request <- function(url) { # nocov start
   resp <-
-    httr::RETRY("GET", url) %>%
-    httr::stop_for_status()
+    httr::RETRY("GET", url)
+
+  status <- httr::status_code(resp)
+
+  if (status >= 300) {
+    message(
+      glue::glue("API currently unavailable: status code {status}.")
+    )
+    return(tibble::tibble())
+  }
 
   lst <- httr::content(resp)
 
@@ -98,17 +106,21 @@ date_to_int <- function(x) {
 }
 
 clean_date <- function(x) {
-  if (all(stringr::str_detect(x, "[A-Z]+"))) {
+
+  if (all(stringr::str_detect(x, "[A-Z]+") | is.na(x))) {
     # For the dateChecked case
     x %>%
       stringr::str_remove_all("[A-Z]+") %>%
       lubridate::as_datetime(
         tz = "America/New_York"
       )
-  } else if (all(stringr::str_detect(x, "/"))) {
-    # For the `check_time` case in `get_states_current()`
+  } else if (all(stringr::str_detect(x, "/") | is.na(x))) {
+    if (!any(stringr::str_detect(x[!is.na(x)], "/2020"))) {
+      x %<>%
+        stringr::str_replace_all(" ", "/2020 ")
+    }
+
     x %>%
-      stringr::str_replace(" ", "/20 ") %>%
       lubridate::mdy_hm(
         tz = "America/New_York"
       )

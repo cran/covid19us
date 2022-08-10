@@ -8,7 +8,7 @@
 #' get_states_current()
 #' }
 get_states_current <- function() {
-  get("states")
+  get("states/current")
 }
 
 #' Get daily counts for every state
